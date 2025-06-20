@@ -64,10 +64,11 @@ int main(int argc, char* argv[])
 	{
 		std::cout << "<use xlink:href='#markerSet' transform='rotate(" << degree << ")'/>" << std::endl;
 	}
-	std::cout << "<circle cx='0' cy='0' r='9' fill='" << faceColour << "'/>" << std::endl;
 	
 	std::cout << "<line x1='0' y1='-62' x2='0' y2='0' stroke-width='5' stroke='" << hourHandColour << "' transform='rotate(" << (hour + static_cast<float>(minute)/60) * (360/12) << ")'/>" << std::endl;
 	std::cout << "<line x1='0' y1='-95' x2='0' y2='0' stroke-width='2.8' stroke='" << minuteHandColour << "' transform='rotate(" << minute * (360/60) << ")'/>" << std::endl;
+	
+	std::cout << "<circle cx='0' cy='0' r='9' fill='" << faceColour << "'/>" << std::endl;
 	
 	std::cout << "</svg>" << std::endl;
 }
