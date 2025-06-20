@@ -1,11 +1,11 @@
 # clock_svg
 Generate SVG clock
 
-##Compilation
+## Compilation
 
     make
 
-##Running
+## Running
 
     ./clock_svg
   
@@ -47,9 +47,10 @@ Last colour applied will take presedence, all colours acceptable by the SVG fill
 
   see also: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/fill
 
-##Example
-[[example/clock_example.svg|alt=Clock Example]]
+## Example
 
-##Thanks
+![Clock Example](example/clock_example.svg)
+
+## Thanks
 
 * [Commons:User:Jahobr](https://commons.wikimedia.org/wiki/User:Jahobr) for rewriting [Commons:File:Clock_12-17.svg](https://commons.wikimedia.org/wiki/File:Clock_12-27.svg) making it possible to use it as a template for this program.
