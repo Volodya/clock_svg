@@ -33,16 +33,18 @@ To change the colour:
   
     ./clock_svg --handcolour=red 7 13
   
-  or to change all separately
-  
-    ./clock_svg --centrefacecolour=red --minutefacecolour=orange --hourfacecolour=pink --minutehandcolour=blue --hourhandcolour=green 7 13 > clock_example.svg
-  
-  
-  
   or to change colour of hands to a different colour each
   
     ./clock_svg --minutehandcolour=yellow --hourhandcolour=red 7 13
 
+  or to change all separately
+  
+    ./clock_svg --centrefacecolour=red --minutefacecolour=orange --hourfacecolour=pink --minutehandcolour=blue --hourhandcolour=green 7 13 > clock_example.svg
+  
+  in addition to that there is a way to change background colour
+  
+    ./clock_svg --backgroundcolour=white 7 13
+  
 Last colour applied will take presedence, all colours acceptable by the SVG fill attribute are acceptable.
 
   see also: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/fill

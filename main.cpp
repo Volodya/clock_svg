@@ -5,7 +5,7 @@
 int main(int argc, char* argv[])
 {
 	int hour{0}, minute{0};
-	std::string centreFaceColour{"black"}, minuteFaceColour{"black"}, hourFaceColour{"black"}, hourHandColour{"black"}, minuteHandColour{"black"};
+	std::string centreFaceColour{"black"}, minuteFaceColour{"black"}, hourFaceColour{"black"}, hourHandColour{"black"}, minuteHandColour{"black"}, backgroundColour{};
 	
 	int gnuArgCount = 0;
 	while(argv[gnuArgCount+1] && argv[gnuArgCount+1][0] == '-' && argv[gnuArgCount+1][1] == '-')
@@ -43,6 +43,10 @@ int main(int argc, char* argv[])
 		{
 			minuteHandColour = gnuArg.substr(std::string{"minutehandcolour="}.length());
 		}
+		else if(gnuArg.starts_with("backgroundcolour="))
+		{
+			backgroundColour = gnuArg.substr(std::string{"backgroundcolour="}.length());
+		}
 		++gnuArgCount;
 	}
 	if(argc>gnuArgCount+1)
@@ -58,9 +62,13 @@ int main(int argc, char* argv[])
 	
 	// https://commons.wikimedia.org/wiki/File:Clock_12-27.svg
 	// https://commons.wikimedia.org/wiki/User:Jahobr
+	std::cout << "<?xml version='1.0' encoding='UTF-8'?>" << std::endl;
+	std::cout << "<svg xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='-100 -100 200 200'>" << std::endl;
+	if(!backgroundColour.empty())
+	{
+		std::cout << "<rect width='100%' height='90%' x='-100' y='-100' fill='" << backgroundColour << "' />" << std::endl;
+	}
 	std::cout
-		<< "<?xml version='1.0' encoding='UTF-8'?>" << std::endl
-		<< "<svg xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='-100 -100 200 200'>" << std::endl
 		<< "<defs>"
 			<< "<circle cx='0' cy='87' r='2.2' fill='" << minuteFaceColour << "' id='minMarker'/>"
 			<< "<line x1='0' y1='95' x2='0' y2='78' stroke-width='3.8' stroke='" << hourFaceColour << "' id='hourMarker'/>"
