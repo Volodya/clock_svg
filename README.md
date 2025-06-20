@@ -1,11 +1,11 @@
 # clock_svg
 Generate SVG clock
 
-To copile:
+##Compilation
 
     make
 
-To run:
+##Running
 
     ./clock_svg
   
@@ -32,7 +32,13 @@ To change the colour:
   or to change only colour of hands
   
     ./clock_svg --handcolour=red 7 13
-
+  
+  or to change all separately
+  
+    ./clock_svg --centrefacecolour=red --minutefacecolour=orange --hourfacecolour=pink --minutehandcolour=blue --hourhandcolour=green 7 13 > clock_example.svg
+  
+  
+  
   or to change colour of hands to a different colour each
   
     ./clock_svg --minutehandcolour=yellow --hourhandcolour=red 7 13
@@ -40,3 +46,10 @@ To change the colour:
 Last colour applied will take presedence, all colours acceptable by the SVG fill attribute are acceptable.
 
   see also: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/fill
+
+##Example
+[[example/clock_example.svg|alt=Clock Example]]
+
+##Thanks
+
+* [Commons:User:Jahobr](https://commons.wikimedia.org/wiki/User:Jahobr) for rewriting [Commons:File:Clock_12-17.svg](https://commons.wikimedia.org/wiki/File:Clock_12-27.svg) making it possible to use it as a template for this program.

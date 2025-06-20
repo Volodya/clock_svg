@@ -5,7 +5,7 @@
 int main(int argc, char* argv[])
 {
 	int hour{0}, minute{0};
-	std::string faceColour{"black"}, hourHandColour{"black"}, minuteHandColour{"black"};
+	std::string centreFaceColour{"black"}, minuteFaceColour{"black"}, hourFaceColour{"black"}, hourHandColour{"black"}, minuteHandColour{"black"};
 	
 	int gnuArgCount = 0;
 	while(argv[gnuArgCount+1] && argv[gnuArgCount+1][0] == '-' && argv[gnuArgCount+1][1] == '-')
@@ -13,11 +13,23 @@ int main(int argc, char* argv[])
 		std::string gnuArg{&argv[gnuArgCount+1][2]};
 		if(gnuArg.starts_with("colour="))
 		{
-			faceColour = hourHandColour = minuteHandColour = gnuArg.substr(std::string{"colour="}.length());
+			centreFaceColour = minuteFaceColour = hourFaceColour = hourHandColour = minuteHandColour = gnuArg.substr(std::string{"colour="}.length());
 		}
 		else if(gnuArg.starts_with("facecolour="))
 		{
-			faceColour = gnuArg.substr(std::string{"facecolour="}.length());
+			centreFaceColour = minuteFaceColour = hourFaceColour = gnuArg.substr(std::string{"facecolour="}.length());
+		}
+		else if(gnuArg.starts_with("centrefacecolour="))
+		{
+			centreFaceColour = gnuArg.substr(std::string{"centrefacecolour="}.length());
+		}
+		else if(gnuArg.starts_with("minutefacecolour="))
+		{
+			minuteFaceColour = gnuArg.substr(std::string{"minutefacecolour="}.length());
+		}
+		else if(gnuArg.starts_with("hourfacecolour="))
+		{
+			hourFaceColour = gnuArg.substr(std::string{"hourfacecolour="}.length());
 		}
 		else if(gnuArg.starts_with("handcolour="))
 		{
@@ -50,8 +62,8 @@ int main(int argc, char* argv[])
 		<< "<?xml version='1.0' encoding='UTF-8'?>" << std::endl
 		<< "<svg xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='-100 -100 200 200'>" << std::endl
 		<< "<defs>"
-			<< "<circle cx='0' cy='87' r='2.2' fill='" << faceColour << "' id='minMarker'/>"
-			<< "<line x1='0' y1='95' x2='0' y2='78' stroke-width='3.8' stroke='" << faceColour << "' id='hourMarker'/>"
+			<< "<circle cx='0' cy='87' r='2.2' fill='" << minuteFaceColour << "' id='minMarker'/>"
+			<< "<line x1='0' y1='95' x2='0' y2='78' stroke-width='3.8' stroke='" << hourFaceColour << "' id='hourMarker'/>"
 		<< "</defs>" << std::endl
 		<< "<g id='markerSet'>"
 			<< "<use xlink:href='#hourMarker'/>"
@@ -68,7 +80,7 @@ int main(int argc, char* argv[])
 	std::cout << "<line x1='0' y1='-62' x2='0' y2='0' stroke-width='5' stroke='" << hourHandColour << "' transform='rotate(" << (hour + static_cast<float>(minute)/60) * (360/12) << ")'/>" << std::endl;
 	std::cout << "<line x1='0' y1='-95' x2='0' y2='0' stroke-width='2.8' stroke='" << minuteHandColour << "' transform='rotate(" << minute * (360/60) << ")'/>" << std::endl;
 	
-	std::cout << "<circle cx='0' cy='0' r='9' fill='" << faceColour << "'/>" << std::endl;
+	std::cout << "<circle cx='0' cy='0' r='9' fill='" << centreFaceColour << "'/>" << std::endl;
 	
 	std::cout << "</svg>" << std::endl;
 }
