@@ -3,20 +3,20 @@ Generate SVG clock
 
 To copile:
 
-  make
+    make
 
 To run:
 
-  ./clock_svg
+    ./clock_svg
   
-    or
+  or
   
-  ./clock_svg 7
+    ./clock_svg 7
   
-    or
+  or
   
-  ./clock_svg 7 13
+    ./clock_svg 7 13
 
 To save into a file:
 
-  ./clock_svg 7 13 > clock_7_13.svg
+    ./clock_svg 7 13 > clock_7_13.svg
