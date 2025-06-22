@@ -1,5 +1,5 @@
 # clock_svg
-Generate SVG clock
+A small utility that generates an SVG image of an analog clock. User can change colours of face elements and hands from the command line. Images are pretty trivial, but are intended to be visible and recognisable while being small. SVG code is based on the image available on Wikimedia Commons (see Thanks section for details).
 
 ## Compilation
 
